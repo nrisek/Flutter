@@ -73,13 +73,21 @@ class _HomePageState extends State<HomePage> {
                     style: GoogleFonts.pacifico(fontSize: 50),
                   ),
                 ),
-                TextField(
-                  controller: _email,
-                  enableSuggestions: false,
-                  autocorrect: false,
-                  keyboardType: TextInputType.emailAddress,
-                  decoration: const InputDecoration(
-                    hintText: 'Email',
+                Container(
+                  margin: const EdgeInsets.only(bottom: 10.0),
+                  child: TextField(
+                    controller: _email,
+                    enableSuggestions: false,
+                    autocorrect: false,
+                    keyboardType: TextInputType.emailAddress,
+                    decoration: InputDecoration(
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(10.0),
+                        ),
+                        filled: true,
+                        hintStyle: TextStyle(color: Colors.grey[800]),
+                        hintText: "Email",
+                        fillColor: Colors.white70),
                   ),
                 ),
                 TextField(
@@ -87,7 +95,15 @@ class _HomePageState extends State<HomePage> {
                   obscureText: true,
                   enableSuggestions: false,
                   autocorrect: false,
-                  decoration: const InputDecoration(hintText: 'Password'),
+                  decoration: InputDecoration(
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(10.0),
+                    ),
+                    filled: true,
+                    hintStyle: TextStyle(color: Colors.grey[800]),
+                    hintText: "Password",
+                    fillColor: Colors.white70,
+                  ),
                 ),
                 Container(
                   margin: const EdgeInsets.only(top: 20.0),
@@ -95,10 +111,13 @@ class _HomePageState extends State<HomePage> {
                     style: ButtonStyle(
                       shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                         RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(18.0),
-                          side: const BorderSide(color: Colors.blue),
+                          borderRadius: BorderRadius.circular(30.0),
+                          side: const BorderSide(
+                              color: Color.fromARGB(255, 77, 173, 252)),
                         ),
                       ),
+                      backgroundColor: MaterialStateProperty.all(
+                          const Color.fromARGB(255, 77, 173, 252)),
                     ),
                     onPressed: () async {
                       /*final email = _email.text;
@@ -108,8 +127,14 @@ class _HomePageState extends State<HomePage> {
                               email: email, password: password);
                       print(userCredential);*/
                     },
-                    child: Text('Register',
-                        style: GoogleFonts.roboto(fontSize: 20)),
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Text(
+                        'Register',
+                        style: GoogleFonts.roboto(
+                            fontSize: 20, color: Colors.white),
+                      ),
+                    ),
                   ),
                 ),
               ],
